@@ -1,9 +1,5 @@
 
 
-Credits: 
-
-https://www.mirkosertic.de/blog/2013/04/domain-driven-design-example/
-
 Use Case
 
 - Freelancer moved to new location
@@ -11,7 +7,10 @@ Use Case
 - List Freelancer available for period
 
 
-Credits: 
+Credits:
+
+https://www.mirkosertic.de/blog/2013/04/domain-driven-design-example/
+
 
 https://www.citerus.se/using-java-records-as-value-objects/
 

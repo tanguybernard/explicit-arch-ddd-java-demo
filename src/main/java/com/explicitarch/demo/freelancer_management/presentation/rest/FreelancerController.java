@@ -1,6 +1,8 @@
 package com.explicitarch.demo.freelancer_management.presentation.rest;
 
 import com.explicitarch.demo.freelancer_management.application_core.freelancer.application.ListAllFreelancer;
+import com.explicitarch.demo.project_management.application_core.application.GetProjectForCustomer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,9 +15,11 @@ import java.util.stream.Collectors;
 @RequestMapping("freelancers")
 public class FreelancerController {
 
-    private final ListAllFreelancer listAllFreelancer;
+    private ListAllFreelancer listAllFreelancer;
 
-    public FreelancerController(ListAllFreelancer listAllFreelancer) {
+
+    @Autowired
+    public void setInjectedBean(ListAllFreelancer listAllFreelancer) {
         this.listAllFreelancer = listAllFreelancer;
     }
 
@@ -33,9 +37,9 @@ public class FreelancerController {
                 .collect(Collectors.toList());
     }
 
-    /*@GetMapping("/{id}", produces = "application/json")
-    public Book getFreelancer(@PathVariable int id) {
-        return findFreelancerById(id);
+    /*@GetMapping("/{value}", produces = "application/json")
+    public Book getFreelancer(@PathVariable int value) {
+        return findFreelancerById(value);
     }*/
 
 }

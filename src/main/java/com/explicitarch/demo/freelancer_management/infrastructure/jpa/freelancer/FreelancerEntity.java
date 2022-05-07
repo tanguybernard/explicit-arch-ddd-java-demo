@@ -3,7 +3,7 @@ package com.explicitarch.demo.freelancer_management.infrastructure.jpa.freelance
 import javax.persistence.*;
 
 @Entity
-@Table(name = "freelancer")
+@Table(name = "freelancer", schema = "freelancer_management")
 public class FreelancerEntity {
 
     @Id

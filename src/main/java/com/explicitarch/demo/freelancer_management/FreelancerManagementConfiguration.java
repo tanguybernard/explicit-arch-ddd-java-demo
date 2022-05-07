@@ -4,6 +4,9 @@ import com.explicitarch.demo.freelancer_management.application_core.freelancer.a
 import com.explicitarch.demo.freelancer_management.infrastructure.jpa.freelancer.FreelancerDao;
 import com.explicitarch.demo.freelancer_management.infrastructure.jpa.freelancer.FreelancerJpaRepository;
 import com.explicitarch.demo.freelancer_management.infrastructure.jpa.freelancer.FreelancerMapper;
+import com.explicitarch.demo.project_management.application_core.application.GetProjectForCustomer;
+import com.explicitarch.demo.project_management.infrastructure.jpa.ProjectJpaRepository;
+import com.explicitarch.demo.project_management.infrastructure.jpa.ProjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

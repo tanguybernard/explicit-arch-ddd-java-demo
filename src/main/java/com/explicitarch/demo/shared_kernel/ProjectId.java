@@ -1,4 +1,6 @@
 package com.explicitarch.demo.shared_kernel;
 
-public class ProjectId {
+public record ProjectId(Integer value) {
+
+
 }
