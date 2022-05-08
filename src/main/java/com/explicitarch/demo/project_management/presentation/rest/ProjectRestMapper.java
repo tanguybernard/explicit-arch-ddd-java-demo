@@ -9,9 +9,9 @@ public class ProjectRestMapper {
 
     public Map<String, Object> fromDomain(Project project){
         Map<String, Object> map = new HashMap<>();
-        map.put("project_id", project.id.value());
-        map.put("project_name",project.name.value());
-        map.put("customer_id",project.customerId.value());
+        map.put("projectId", project.id.value());
+        map.put("projectName",project.name.value());
+        map.put("customerId",project.customerId.value());
         return map;
     }
 }

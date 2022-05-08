@@ -36,7 +36,7 @@ public class ProjectControllerTest {
 
     @BeforeEach
     public void setUp() {
-        baseUrl = baseUrl.concat(":").concat(port+ "").concat("/customers");
+        baseUrl = baseUrl.concat(":").concat(port+ "").concat("/projects");
     }
 
     @Test
@@ -50,7 +50,7 @@ public class ProjectControllerTest {
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List> responseEntity = restTemplate.getForEntity(
-                baseUrl.concat("/{customerId}/projects"), List.class, 1);
+                baseUrl.concat("?customerId=%s".formatted(1)), List.class);
 
         List<Map> objects = responseEntity.getBody();
         MediaType contentType = responseEntity.getHeaders().getContentType();
@@ -58,7 +58,7 @@ public class ProjectControllerTest {
         assertThat(statusCode).isEqualTo(HttpStatus.OK);
 
 
-        Map map = new HashMap() {{put("customer_id", 1); put("project_id", 1); put("project_name", "EDF");}};
+        Map map = new HashMap() {{put("customerId", 1); put("projectId", 1); put("projectName", "EDF");}};
 
 
         assertThat(objects).isEqualTo(List.of(map));

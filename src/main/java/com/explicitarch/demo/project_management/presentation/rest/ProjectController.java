@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("customers")
+@RequestMapping("projects")
 public class ProjectController {
 
     private GetProjectForCustomer getProjectForCustomer;
@@ -25,8 +25,8 @@ public class ProjectController {
     @Autowired
     private ProjectRestMapper projectRestMapper;
 
-    @GetMapping(value= "/{customerId}/projects")//TODO change by projects?customerId=1
-    public List<Map<String, Object>> exist(@PathVariable Integer customerId){
+    @GetMapping()
+    public List<Map<String, Object>> exist(@RequestParam Integer customerId){
         try {
             List<Project> projects = this.getProjectForCustomer.projectExistFor(new CustomerId(customerId));
             return projects.stream().map(project -> this.projectRestMapper.fromDomain(project)).collect(Collectors.toList());
@@ -35,9 +35,9 @@ public class ProjectController {
         }
     }
 
-    @GetMapping(value= "/{customerId}/hello")
-    public String hello(@PathVariable Integer customerId) {
-        return "Hello ProjectController!"+customerId;
+    @GetMapping(value= "/hello")
+    public String hello() {
+        return "Hello ProjectController!";
     }
 
 }
