@@ -2,7 +2,7 @@ package com.explicitarch.demo.project_management.presentation.rest;
 
 import com.explicitarch.demo.project_management.application_core.application.GetProjectForCustomer;
 import com.explicitarch.demo.project_management.application_core.domain.Project;
-import com.explicitarch.demo.shared_kernel.CustomerId;
+import com.explicitarch.demo.shared_kernel.domain.value_object.CustomerId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -25,14 +25,18 @@ public class ProjectController {
     @Autowired
     private ProjectRestMapper projectRestMapper;
 
-    @GetMapping()
+    @GetMapping("")
     public List<Map<String, Object>> exist(@RequestParam Integer customerId){
+            System.out.println("IAM here");
+
+        List<Project> projects = null;
         try {
-            List<Project> projects = this.getProjectForCustomer.projectExistFor(new CustomerId(customerId));
-            return projects.stream().map(project -> this.projectRestMapper.fromDomain(project)).collect(Collectors.toList());
+            projects = this.getProjectForCustomer.projectExistFor(new CustomerId(customerId));
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new RuntimeException(e);
         }
+        return projects.stream().map(project -> this.projectRestMapper.fromDomain(project)).collect(Collectors.toList());
+
     }
 
     @GetMapping(value= "/hello")

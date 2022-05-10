@@ -1,6 +1,6 @@
 package com.explicitarch.demo.freelancer_management.application_core.freelancer.domain;
 
-import com.explicitarch.demo.shared_kernel.Address;
+import com.explicitarch.demo.shared_kernel.domain.value_object.Address;
 
 public class Freelancer{
     public FreelancerId freelancerId;

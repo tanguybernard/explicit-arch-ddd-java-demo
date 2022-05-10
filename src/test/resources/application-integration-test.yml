@@ -1,0 +1,16 @@
+#jdbc:postgresql://dbpostgresql:5432/mydb  (Dans le conteneur)
+spring:
+  application:
+    name: integration-test
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/test
+    jdbc-url: ${spring.datasource.url}
+    username: postgres
+    password: password
+  jpa:
+    database: postgresql
+    ddl-auto: validate
+
+
+server:
+  port: 8082

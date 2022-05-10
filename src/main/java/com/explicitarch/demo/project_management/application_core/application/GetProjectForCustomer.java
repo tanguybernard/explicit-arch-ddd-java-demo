@@ -2,7 +2,7 @@ package com.explicitarch.demo.project_management.application_core.application;
 
 import com.explicitarch.demo.project_management.application_core.domain.Project;
 import com.explicitarch.demo.project_management.application_core.domain.ProjectDirectory;
-import com.explicitarch.demo.shared_kernel.CustomerId;
+import com.explicitarch.demo.shared_kernel.domain.value_object.CustomerId;
 
 import java.util.List;
 
@@ -16,11 +16,6 @@ public class GetProjectForCustomer { //call from presentation -> by  customer ma
     }
 
     public List<Project> projectExistFor(CustomerId customerId) throws Exception {
-        List<Project> projects = this.projectDirectory.findByCustomerId(customerId);
-        if(projects.isEmpty()){
-            throw new Exception("Project does not exist for this customer!");
-        }
-
-        return projects;
+        return this.projectDirectory.findByCustomerId(customerId);
     }
 }

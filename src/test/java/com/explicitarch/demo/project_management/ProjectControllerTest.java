@@ -44,9 +44,7 @@ public class ProjectControllerTest {
             executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql(statements = "DELETE FROM project_management.project",
             executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-    public void returnAPersonWithIdOne() throws URISyntaxException {
-
-
+    public void returnAPersonWithIdOne() {
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List> responseEntity = restTemplate.getForEntity(

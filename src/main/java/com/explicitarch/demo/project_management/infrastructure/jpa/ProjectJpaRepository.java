@@ -2,7 +2,7 @@ package com.explicitarch.demo.project_management.infrastructure.jpa;
 
 
 import com.explicitarch.demo.project_management.application_core.domain.ProjectDirectory;
-import com.explicitarch.demo.shared_kernel.CustomerId;
+import com.explicitarch.demo.shared_kernel.domain.value_object.CustomerId;
 import com.explicitarch.demo.project_management.application_core.domain.Project;
 
 import java.util.List;

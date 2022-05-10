@@ -2,7 +2,7 @@ package com.explicitarch.demo.freelancer_management.infrastructure.jpa.freelance
 
 import com.explicitarch.demo.freelancer_management.application_core.freelancer.domain.Freelancer;
 import com.explicitarch.demo.freelancer_management.application_core.freelancer.domain.FreelancerId;
-import com.explicitarch.demo.shared_kernel.Address;
+import com.explicitarch.demo.shared_kernel.domain.value_object.Address;
 
 public class FreelancerMapper {
 

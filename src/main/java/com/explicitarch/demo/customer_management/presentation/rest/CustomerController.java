@@ -1,7 +1,7 @@
 package com.explicitarch.demo.customer_management.presentation.rest;
 
 import com.explicitarch.demo.customer_management.application_core.application.DeleteCustomer;
-import com.explicitarch.demo.shared_kernel.CustomerId;
+import com.explicitarch.demo.shared_kernel.domain.value_object.CustomerId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +17,15 @@ public class CustomerController {
         this.deleteCustomer = deleteCustomer;
     }
 
-    @GetMapping(value= "/{customerId}")
+    @DeleteMapping(value= "/{customerId}")
     public ResponseEntity<Object> delete(@PathVariable Integer customerId){
-        this.deleteCustomer.deleteCustomer(new CustomerId(customerId));
+        try {
+            System.out.println("INTO Cobtrooler");
+
+            this.deleteCustomer.deleteCustomer(new CustomerId(customerId));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         return ResponseEntity.ok().build();
     }
 
