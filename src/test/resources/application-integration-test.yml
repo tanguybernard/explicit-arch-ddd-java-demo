@@ -12,5 +12,6 @@ spring:
     ddl-auto: validate
 
 
-server:
-  port: 8082
+application:
+  project-management:
+    port: 8083

@@ -7,23 +7,20 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(classes = App.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
         properties = {
-                "server.port=8082",
-                "application.server.port=9042"
+                "server.port=8083",
+                "application.project_management.port=8083"//use same port (later useful for micro services)
         })
 @ActiveProfiles("integration-test")
 public class CustomerControllerTest {
 
 
-    private int port= 8082;
     private String baseUrl = "http://localhost";
     private String baseUrlCustomer;
 
@@ -37,7 +34,7 @@ public class CustomerControllerTest {
 
     @BeforeEach
     public void setUp() {
-        baseUrlCustomer = baseUrl.concat(":").concat(port+ "").concat("/customers");
+        baseUrlCustomer = baseUrl.concat(":").concat(serverPort+ "").concat("/customers");
     }
 
     @Value("${server.port}")
@@ -45,7 +42,7 @@ public class CustomerControllerTest {
 
     @Test
     public void givenFixedPortAsServerPort_whenReadServerPort_thenGetThePort() {
-        assertThat(this.port).isEqualTo(serverPort);
+        assertThat(this.serverPort).isEqualTo(8083);
     }
 
     @Test
